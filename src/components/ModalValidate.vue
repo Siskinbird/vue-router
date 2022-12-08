@@ -1,6 +1,6 @@
 <template>
   <modal
-      title="Modal with form and validate"
+      title="Modal + validate"
       @close="$emit('close')">
     <!-- body -->
     <div slot="body">
@@ -16,7 +16,7 @@
         </div>
         <!--E-mail-->
         <div class="form-item" :class="{errorInput: $v.email.$error}">
-          <label>E-mail:</label>
+          <label>Email:</label>
           <p class="errorText" v-if="!$v.email.required">Field is required</p>
           <p class="errorText" v-if="!$v.email.email">E-mail is not correct !</p>
           <input v-model="email"
@@ -39,7 +39,9 @@ export default {
   data() {
     return {
       name: '',
-      email: ''
+      email: '',
+      password: '',
+      repeatPassword: ''
     }
   },
   validations: {
@@ -78,8 +80,25 @@ export default {
   color: #DE4040;
 }
 .form-item {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+
   &.errorInput .errorText {
     display: block;
+    position: absolute;
+    top: 23px;
+    right: 23px;
+  }
+  input {
+
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+  }
+  label {
+    font-size: 14px;
   }
 }
 input.error {
