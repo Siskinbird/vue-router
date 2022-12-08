@@ -1,6 +1,6 @@
 <template>
   <transition name="modal">
-    <div class="modal__wrapper" @click="$emit('close')">
+    <div class="modal__wrapper" @click="$emit('close')" >
       <div class="modal-content" @click.stop="">
         <div class="modal-header">
           <span class="modal-title"> {{ title }} </span>
@@ -31,9 +31,8 @@ export default {
         this.$emit('close')
       }
     })
-  },
-  computed: {},
-  methods: {}
+  }
+
 }
 </script>
 

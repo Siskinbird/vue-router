@@ -1,19 +1,23 @@
 <template>
   <modal
       title="Modal + validate"
-      @close="$emit('close')">
+      @close="$emit('close')"
+      @clear="$emit('clear')"
+  >
     <!-- body -->
     <div slot="body">
       <form @submit.prevent="onSubmit">
+
         <!--Name-->
         <div class="form-item" :class="{errorInput: $v.name.$error}">
           <label>Name:</label>
           <p class="errorText" v-if="!$v.name.required">Field is required</p>
-          <p class="errorText" v-if="!$v.name.minLength">Name must be lot a {{ $v.name.$params.minLength.min }} !</p>
+          <p class="errorText" v-if="!$v.name.minLength">Name length must be more than{{ $v.name.$params.minLength.min }} !</p>
           <input v-model="name"
                  :class="{error: $v.name.$error}"
                  @change="$v.name.$touch()">
         </div>
+
         <!--E-mail-->
         <div class="form-item" :class="{errorInput: $v.email.$error}">
           <label>Email:</label>
@@ -22,6 +26,25 @@
           <input v-model="email"
                  :class="{error: $v.email.$error}"
                  @change="$v.email.$touch()">
+        </div>
+        <!--Password-->
+        <div class="form-item" :class="{errorInput: $v.password.$error}">
+          <label>Password:</label>
+          <p class="errorText" v-if="!$v.password.required">Field is required</p>
+          <p class="errorText" v-if="!$v.password.minLength">Password length must be more than {{ $v.password.$params.minLength.min }} !</p>
+          <input v-model="password"
+                 type="password"
+                 :class="{error: $v.password.$error}"
+                 @change="$v.password.$touch()">
+        </div>
+        <!--PasswordRepeat-->
+        <div class="form-item" :class="{errorInput: $v.repeatPassword.$error}">
+          <label>Repeat password:</label>
+          <p class="errorText" v-if="!$v.repeatPassword.sameAsPassword">Passwords must be identical!</p>
+          <input v-model="$v.repeatPassword.$model"
+                 type="password"
+                 :class="{error: $v.repeatPassword.$error}"
+                 @change="$v.password.$touch()">
         </div>
 
         <button class="btn">Submit</button>
@@ -32,7 +55,7 @@
 </template>
 
 <script>
-import {required, minLength, email} from 'vuelidate/lib/validators'
+import {required, minLength, email, sameAs} from 'vuelidate/lib/validators'
 import modal from '@/components/UI/Modal.vue'
 export default {
   components: {modal},
@@ -52,6 +75,13 @@ export default {
     email: {
       required,
       email
+    },
+    password: {
+      required,
+      minLength: minLength(6)
+    },
+    repeatPassword: {
+      sameAsPassword: sameAs('password')
     }
   },
   methods: {
@@ -60,15 +90,18 @@ export default {
       if(!this.$v.$invalid) {
         const  user = {
           name: this.name,
-          email: this.email
+          email: this.email,
+          password: this.password
         }
         console.log(user);
       }
       this.name = ''
       this.email = ''
       this.$v.$reset()
+      this.password = ''
+      this.repeatPassword = ''
       this.$emit('close')
-    }
+    },
   }
 }
 </script>

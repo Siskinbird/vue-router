@@ -2,7 +2,20 @@
   <div class="wrapper-content wrapper-content--fixed">
     <section>
       <div class="container">
-        <h1>Home page</h1>
+        <h1 class="home-title">Easy homework with password validation and validation form cleanup</h1>
+        <div class="button-block">
+
+          <!-- Modal with validate-->
+          <button class="btn btnPrimary" @click="modalValidate = !modalValidate">Modal validate</button>
+
+          <!--TODO PARENT OF EMITS!!!-->
+          <modalValidate
+              v-show="modalValidate"
+              @close="closeValidate()"
+          />
+        </div>
+
+
       </div>
     </section>
   </div>
@@ -11,11 +24,42 @@
 <script>
 
 
-
+import modal from "@/components/UI/Modal";
+import ModalValidate from "@/components/ModalValidate";
 
 export default {
   name: 'Home',
   components: {
+    ModalValidate,
+    modal
+  }, data() {
+    return {
+      modalValidate: false,
+    }
+  },
+  methods: {
+    closeValidate(){
+      // $v.$reset();
+      this.modalValidate = false
+      this.formCleaner();
+
+    },
+    formCleaner() {
+      document.querySelector('form').reset()
+
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.home-title {
+  text-align: center;
+}
+.button-block {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
