@@ -27,8 +27,8 @@ export default {
   data() {
     return {
       links: [
-        {title: 'Home', url: '/'},
-        {title: 'Example', url: '/example'}
+        {title: 'Easy', url: '/'},
+        {title: 'Hard', url: '/hard'}
       ]
     }
   }

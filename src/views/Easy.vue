@@ -8,7 +8,6 @@
           <!-- Modal with validate-->
           <button class="btn btnPrimary" @click="modalValidate = !modalValidate">Modal validate</button>
 
-          <!--TODO PARENT OF EMITS!!!-->
           <modalValidate
               v-show="modalValidate"
               @close="modalValidate = !modalValidate"
