@@ -4,7 +4,7 @@
          <div class="navbar">
            <div class="container">
              <div class="navbar-content">
-               <div class="logo">VUE 2.X.X</div>
+               <div class="logo">HOME WORK</div>
                <ul class="navbar-list">
                  <li class="navbar-item" v-for="link in links" :key="link.title">
                    <router-link class="navbar-link" :title="link.title" :to="link.url">{{link.title}}</router-link>
@@ -15,21 +15,25 @@
          </div>
         </header>
     <router-view/>
+
 <!--    <footer></footer>-->
   </div>
 </template>
 
 <script>
+
+
 export default {
   data() {
     return {
       links: [
-        {title: 'Home', url: '/'},
-        {title: 'Example', url: '/example'}
+        {title: 'Easy', url: '/'},
+        {title: 'Hard', url: '/hard'}
       ]
     }
   }
 }
+
 </script>
 
 
