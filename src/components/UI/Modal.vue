@@ -20,10 +20,13 @@ export default {
     title: {
       type: String,
       required: true
-    }
+    },
+
   },
   data () {
-    return {}
+    return {
+
+    }
   },
   mounted () {
     document.body.addEventListener('keyup', e => {

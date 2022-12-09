@@ -1,8 +1,7 @@
 <template>
   <modal
       title="Modal + validate"
-      @close="$emit('close')"
-      @clear="$emit('clear')"
+      @close="onSubmit()"
   >
     <!-- body -->
     <div slot="body">
@@ -64,7 +63,7 @@ export default {
       name: '',
       email: '',
       password: '',
-      repeatPassword: ''
+      repeatPassword: '',
     }
   },
   validations: {
@@ -112,6 +111,7 @@ export default {
   font-size: 13px;
   color: #DE4040;
 }
+
 .form-item {
   position: relative;
   display: flex;

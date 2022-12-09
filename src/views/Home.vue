@@ -11,7 +11,7 @@
           <!--TODO PARENT OF EMITS!!!-->
           <modalValidate
               v-show="modalValidate"
-              @close="closeValidate()"
+              @close="modalValidate = !modalValidate"
           />
         </div>
 
@@ -32,21 +32,10 @@ export default {
   components: {
     ModalValidate,
     modal
-  }, data() {
+  },
+  data() {
     return {
       modalValidate: false,
-    }
-  },
-  methods: {
-    closeValidate(){
-      // $v.$reset();
-      this.modalValidate = false
-      this.formCleaner();
-
-    },
-    formCleaner() {
-      document.querySelector('form').reset()
-
     }
   }
 }
