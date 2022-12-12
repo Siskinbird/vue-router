@@ -4,7 +4,7 @@
       <div class="container">
         <h1>PAGE NOT FOUND 404</h1>
         <p>
-          Go to <router-link class="link" to="/">main page?</router-link>
+           Want go to <router-link class="link" to="/">main page?</router-link>
         </p>
       </div>
     </section>
