@@ -1,6 +1,6 @@
 <template>
   <modal
-      title="Login"
+      title="Авторизация"
       @close="onSubmit()"
   >
     <!-- body -->

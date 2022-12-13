@@ -2,15 +2,13 @@
   <div class="wrapper-content wrapper-content--fixed">
     <section>
       <div class="container">
-<!--        <h1 class="home-title">-->
-<!--          Heavy homework with the implementation of login and registration windows with a switch between them</h1>-->
       </div>
       <div class="button-block">
         <LoginValidate
             v-show="loginValidate"
             @close="loginValidate = !loginValidate"
         />
-        <button v-show="!loginValidate" class="btn btnPrimary" @click="loginValidate = !loginValidate">Логин</button>
+        <button v-show="!loginValidate" class="btn btnPrimary" @click="loginValidate = !loginValidate">Авторизация</button>
       </div>
     </section>
   </div>
@@ -26,8 +24,7 @@ import LoginValidate from "@/components/LoginValidate";
 export default {
   name: 'Login',
   components: {
-    LoginValidate,
-    modal
+    LoginValidate
   },
   data() {
     return {
