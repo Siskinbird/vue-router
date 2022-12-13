@@ -27,7 +27,7 @@ import modal from "@/components/UI/Modal";
 import ModalValidate from "@/components/ModalValidate";
 
 export default {
-  name: 'Home',
+  name: 'Easy',
   components: {
     ModalValidate,
     modal
