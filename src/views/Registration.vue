@@ -2,16 +2,14 @@
   <div class="wrapper-content wrapper-content--fixed">
     <section>
       <div class="container">
-        <h1 class="home-title">
-          Heavy homework with the implementation of login and registration windows with a switch between them</h1>
       </div>
       <div class="button-block">
-        <ModalValidate
-            v-show="modalValidate"
-            @close="modalValidate = !modalValidate"
+        <RegistrationValidate
+            v-show="registrationValidate"
+            @close="registrationValidate = !registrationValidate"
         />
-        <button class="btn btnPrimary" >Логин</button>
-        <button class="btn btnPrimary" @click="modalValidate = !modalValidate" >Регистрация</button>
+
+        <button v-show="!registrationValidate" class="btn btnPrimary" @click="registrationValidate = !registrationValidate" >Регистрация</button>
       </div>
 
     </section>
@@ -21,18 +19,17 @@
 <script>
 
 
-import modal from "@/components/UI/Modal";
-import ModalValidate from "@/components/ModalValidate";
+
+import RegistrationValidate from "@/components/RegistrationValidate";
 
 export default {
   name: 'Registration',
   components: {
-    ModalValidate,
-    modal
+    RegistrationValidate
   },
   data() {
     return {
-       modalValidate: false,
+       registrationValidate: true,
     }
   }
 }
