@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Easy from "@/views/Easy";
 import NotFound from '@/views/404'
+import Login from "@/views/Login";
 
 Vue.use(VueRouter)
 
@@ -12,17 +13,22 @@ const routes = [
     component: Easy
   },
   {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
     path: '*',
     name: 'notFound',
     component: NotFound
   } ,
   {
-    path: '/hard',
-    name: 'hard',
+    path: '/registration',
+    name: 'registration',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Hard.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Registration.vue')
   }
 ]
 

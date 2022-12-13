@@ -28,7 +28,8 @@ export default {
     return {
       links: [
         {title: 'Easy', url: '/'},
-        {title: 'Hard', url: '/hard'}
+        {title: 'Login', url: '/login'},
+        {title: 'Registration', url: '/registration'}
       ]
     }
   }
