@@ -22,15 +22,12 @@
 
 <script>
 
-
-import modal from "@/components/UI/Modal";
 import ModalValidate from "@/components/ModalValidate";
 
 export default {
   name: 'Easy',
   components: {
     ModalValidate,
-    modal
   },
   data() {
     return {
